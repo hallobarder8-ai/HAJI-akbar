@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HAJI AKBAR STORE</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#050d1f;
+color:white;
+overflow-x:hidden;
+}
+
+/* Loading */
+#loading{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:#050d1f;
+display:flex;
+justify-content:center;
+align-items:center;
+gap:8px;
+z-index:9999;
+}
+
+.bar{
+width:10px;
+height:60px;
+border-radius:10px;
+background:#00c3ff;
+animation:load 1s infinite;
+box-shadow:0 0 20px #00c3ff;
+}
+
+.bar:nth-child(2){
+animation-delay:.2s;
+}
+
+.bar:nth-child(3){
+animation-delay:.4s;
+}
+
+.bar:nth-child(4){
+animation-delay:.6s;
+}
+
+.bar:nth-child(5){
+animation-delay:.8s;
+}
+
+@keyframes load{
+0%,100%{
+height:30px;
+}
+50%{
+height:90px;
+}
+}
+
+/* Konten */
+.container{
+display:none;
+padding:20px;
+max-width:700px;
+margin:auto;
+text-align:center;
+}
+
+.profile{
+width:130px;
+height:130px;
+border-radius:50%;
+object-fit:cover;
+border:4px solid #00bfff;
+box-shadow:0 0 30px #00c3ff;
+margin-top:20px;
+}
+
+h1{
+margin-top:15px;
+color:#6ddcff;
+text-shadow:0 0 20px cyan;
+}
+
+.card{
+margin-top:25px;
+padding:20px;
+background:#0c1734;
+border-radius:20px;
+box-shadow:0 0 20px #00bfff;
+text-align:left;
+}
+
+.card pre{
+white-space:pre-wrap;
+font-size:15px;
+line-height:28px;
+}
+
+button{
+width:100%;
+padding:15px;
+margin-top:15px;
+border:none;
+border-radius:15px;
+font-size:17px;
+font-weight:bold;
+cursor:pointer;
+background:linear-gradient(45deg,#00bfff,#0066ff);
+color:white;
+box-shadow:0 0 20px cyan;
+transition:.3s;
+}
+
+button:hover{
+transform:scale(1.03);
+}
+
+/* Popup */
+.popup{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.8);
+display:none;
+justify-content:center;
+align-items:center;
+animation:fade .3s;
+}
+
+.box{
+background:#09152d;
+padding:20px;
+border-radius:20px;
+width:320px;
+text-align:center;
+box-shadow:0 0 30px cyan;
+animation:zoom .3s;
+}
+
+.box img{
+width:100%;
+border-radius:15px;
+}
+
+.close{
+margin-top:15px;
+background:red;
+}
+
+@keyframes zoom{
+from{
+transform:scale(.5);
+opacity:0;
+}
+to{
+transform:scale(1);
+opacity:1;
+}
+}
+
+@keyframes fade{
+from{opacity:0;}
+to{opacity:1;}
+}
+
+.footer{
+margin:30px;
+color:#8fcfff;
+}
+</style>
+</head>
+
+<body>
+
+<div id="loading">
+<div class="bar"></div>
+<div class="bar"></div>
+<div class="bar"></div>
+<div class="bar"></div>
+<div class="bar"></div>
+</div>
+
+<div class="container" id="web">
+
+<img src="poto.jpg" class="profile">
+
+<h1>HAJI AKBAR STORE</h1>
+
+<div class="card">
+
+<pre>
+╔════════════════════╗
+      📢 LIST LOGO JB
+╚════════════════════╝
+
+🔥 LOGO JB BASIC
+💰 Rp2.000
+
+🔥 LOGO JB PREMIUM
+💰 Rp5.000
+
+🔥 LOGO JB ANIMASI
+💰 Rp10.000
+
+🔥 LOGO JB 3D
+💰 Rp15.000
+
+🔥 LOGO JB GLOW/NEON
+💰 Rp20.000
+
+🔥 LOGO JB CUSTOM NAMA
+💰 Rp25.000
+
+━━━━━━━━━━━━━━━━━━
+✅ HD Quality
+✅ Bisa Request Warna
+✅ Revisi 1x
+✅ Proses Cepat
+✅ File PNG
+━━━━━━━━━━━━━━━━━━
+
+💳 Payment:
+• QRIS
+• DANA
+• SeaBank
+
+📩 Minat? Langsung Chat Admin!
+
+Powered by Haji Akbar
+</pre>
+
+</div>
+
+<button onclick="bukaQRIS()">💳 PAYMENT QRIS</button>
+
+<button onclick="bukaDana()">PAYMENT DANA & SEABANK</button>
+
+<button onclick="window.open('https://wa.me/628318286251?text=Halo%20Admin,%20Saya%20Sudah%20Transfer%20Dan%20Ingin%20Konfirmasi%20Pembayaran')">
+📲 CHAT WHATSAPP
+</button>
+
+</div>
+
+<!-- Popup QRIS -->
+
+<div class="popup" id="qris">
+<div class="box">
+<h2>SCAN QRIS</h2>
+
+<img src="Qris.jpeg">
+
+<button class="close" onclick="tutupQRIS()">TUTUP</button>
+
+</div>
+</div>
+
+<!-- Popup Dana -->
+
+<div class="popup" id="dana">
+<div class="box">
+
+<h2>PAYMENT</h2>
+
+<h3>DANA</h3>
+<p>083182386351</p>
+
+<br>
+
+
+<button class="close" onclick="tutupDana()">TUTUP</button>
+
+</div>
+</div>
+
+<script>
+
+setTimeout(()=>{
+loading.style.display="none";
+web.style.display="block";
+},2500);
+
+function bukaQRIS(){
+document.getElementById("qris").style.display="flex";
+}
+
+function tutupQRIS(){
+document.getElementById("qris").style.display="none";
+}
+
+function bukaDana(){
+document.getElementById("dana").style.display="flex";
+}
+
+function tutupDana(){
+document.getElementById("dana").style.display="none";
+}
+
+</script>
+
+</body>
+</html>
